@@ -1,0 +1,19 @@
+{
+  "baselines": [
+    {
+      "value": 2600000000,
+      "label": "2.6B (Consumer: Intel Core i7-5960X)",
+      "source": "Intel Haswell-E"
+    },
+    {
+      "value": 5560000000,
+      "label": "5.56B (Server: Intel Xeon E7 v3)",
+      "source": "Intel Haswell-EX"
+    },
+    {
+      "value": 8000000000,
+      "label": "8B (Hypothetical High-End)",
+      "source": "Upscaled Estimate"
+    }
+  ]
+}
