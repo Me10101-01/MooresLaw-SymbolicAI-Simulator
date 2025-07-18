@@ -49,5 +49,5 @@ This repository was developed by **Domenic Garza** under the protections of a **
 - `commit history` – Timestamped development chain
 - `CertOfGoodStanding.pdf` – LLC legal registration
 
-📬 For academic or legal audits, contact: **domenic@symbolicaicode.dev**
+📬 For academic or legal audits, contact: **domenic.garza@snhu.edu**
 
