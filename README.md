@@ -36,3 +36,18 @@ streamlit run app.py
 
 ## 🌐 Public Access
 [Launch Visualizer](https://4e376c216008.ngrok-free.app)
+
+---
+
+## 🔐 Authorship Integrity Notice
+
+This repository was developed by **Domenic Garza** under the protections of a **registered business entity in good standing**. All symbolic modeling code, AI agents, FastAPI endpoints, and mathematical derivations were **authored and tested manually**. While AI tools (e.g., GPT, KaTeX, SymPy) were used to assist in validation and formatting, they were never used to **substitute human reasoning or code generation**.
+
+**Verification Artifacts:**
+- `outputs/discussion_ai_response.txt` – Original AI-formatted discussion
+- `agents/full_repo_verifier.py` – Integrity checker
+- `commit history` – Timestamped development chain
+- `CertOfGoodStanding.pdf` – LLC legal registration
+
+📬 For academic or legal audits, contact: **domenic@symbolicaicode.dev**
+
