@@ -1,0 +1,73 @@
+import os
+import subprocess
+import importlib
+import requests
+import json
+from pathlib import Path
+
+def check_imports(modules):
+    print("📦 Importing symbolic modules...")
+    for module in modules:
+        try:
+            importlib.import_module(module)
+            print(f"✅ {module} imported successfully")
+        except Exception as e:
+            print(f"❌ {module} failed: {e}")
+
+def check_api(endpoint, payload):
+    print("\n🌐 Testing FastAPI endpoint...")
+    try:
+        response = requests.post(endpoint, json=payload)
+        response.raise_for_status()
+        data = response.json()
+        assert "mathml" in data, "❌ MathML not in response"
+        assert isinstance(data["mathml"], str), "❌ MathML is not a string"
+        print(f"✅ API returned MathML: {data['mathml'][:60]}...")
+        return data
+    except Exception as e:
+        print(f"❌ API failed: {e}")
+
+def check_outputs():
+    print("\n📁 Verifying /outputs...")
+    paths = ["outputs/discussion_ai_response.txt", "outputs/discussion_equation_mathml.xml"]
+    for path in paths:
+        if Path(path).exists() and Path(path).stat().st_size > 0:
+            print(f"✅ {path} exists and is non-empty")
+        else:
+            print(f"❌ {path} missing or empty")
+
+def scan_for_toxml():
+    print("\n🔍 Scanning for '.toxml()' calls...")
+    results = subprocess.run(["grep", "-r", ".toxml()", "."], capture_output=True, text=True)
+    if results.stdout.strip():
+        print("❌ Found deprecated .toxml() usage:")
+        print(results.stdout)
+    else:
+        print("✅ No .toxml() calls detected")
+
+def main():
+    modules = [
+        "core.symbolic_alu.mathml_handler",
+        "core.symbolic_alu.generalized_model",
+        "core.control_unit.general_simulation",
+        "agents.mobius_simulation_agent"
+    ]
+    
+    payload = {
+        "start_year": 2014,
+        "target_year": 2040,
+        "initial_transistors": 5.56e9,
+        "doubling_period": 2
+    }
+
+    endpoint = "http://localhost:8080/simulate/mobius"
+
+    print("🔁 Running repo test agent...\n")
+    check_imports(modules)
+    check_api(endpoint, payload)
+    check_outputs()
+    scan_for_toxml()
+    print("\n✅ Repo test complete.")
+
+if __name__ == "__main__":
+    main(

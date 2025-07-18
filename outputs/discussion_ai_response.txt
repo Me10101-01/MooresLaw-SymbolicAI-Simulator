@@ -1,0 +1,13 @@
+
+**Student:** Domenic Garza
+**Year Start:** 2014
+**Target Year:** 2040
+**Doubling Period:** 2 years
+**Initial Transistors:** 5,560,000,000.0
+
+Using Moore’s Law:  
+N(t) = N₀ × 2^(t / 2)  
+N(2040) = 5,560,000,000.0 × 2^(26)/2)  
+→ ≈ 45,547,520,000,000 transistors
+
+**Conclusion:** Based on Moore’s Law, the estimated number of transistors per IC in 2040 is approximately 45.55 trillion.
